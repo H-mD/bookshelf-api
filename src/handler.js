@@ -175,13 +175,13 @@ const getAllBooksHandler = (request, h) => {
 
 const getBookByIdHandler = (request, h) => {
   const { bookId } = request.params;
-  const bookData = books.filter((book) => book.id === bookId)[0];
+  const book = books.filter((b) => b.id === bookId)[0];
 
-  if (bookData !== undefined) {
+  if (book !== undefined) {
     const response = h.response({
       status: 'success',
       data: {
-        bookData,
+        book,
       },
     });
     response.code(200);
